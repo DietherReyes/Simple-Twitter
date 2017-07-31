@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>the title</title>
+    <script type="text/javascript" src="..\assets\js\jquery-3.2.1.js"></script>
+    <script type="text/javascript" language="javascript">
+      var jd;
+      $(document).ready(function() {
+          $.getJSON('../assets/json/tweets.json', function(cd) {
+            jd = cd;
+            for(var i = 0; i < jd.length; i++){
+              $('#stage').append('<p> handler: ' + jd[i].handler + '</p>');
+              $('#stage').append('<p>name : ' + jd[i].name+ '</p>');
+              $('#stage').append('<p> message: ' + jd[i].message+ '</p>');
+            }
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <p>Click on the button to load result.html file:</p>
+    <div id="stage" style="background-color:blue;">
+      STAGE
+    </div>
+    <input type="button" id="driver" value="Load Data" />
+  </body>
+</html>
